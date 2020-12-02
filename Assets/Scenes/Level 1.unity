@@ -251,6 +251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Launch Pad (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4546085285223331111, guid: fae6ee12e64e94904ab562faef7e864c, type: 3}
+      propertyPath: m_TagString
+      value: Friendly
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae6ee12e64e94904ab562faef7e864c, type: 3}
 --- !u!108 &705507994 stripped
@@ -265,30 +269,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 819700742, guid: c11d274982b20a27887801b5ffaec3c2, type: 3}
-      propertyPath: m_Drag
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 819700742, guid: c11d274982b20a27887801b5ffaec3c2, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 819700742, guid: c11d274982b20a27887801b5ffaec3c2, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 819700742, guid: c11d274982b20a27887801b5ffaec3c2, type: 3}
-      propertyPath: m_Constraints
-      value: 56
-      objectReference: {fileID: 0}
-    - target: {fileID: 819700744, guid: c11d274982b20a27887801b5ffaec3c2, type: 3}
-      propertyPath: rcsThrust
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 819700744, guid: c11d274982b20a27887801b5ffaec3c2, type: 3}
-      propertyPath: mainThrust
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 860779029411283602, guid: c11d274982b20a27887801b5ffaec3c2, type: 3}
       propertyPath: m_RootOrder
       value: 1
