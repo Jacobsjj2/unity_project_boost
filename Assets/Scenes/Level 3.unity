@@ -1701,7 +1701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: -4.4, y: 16.8, z: 0}
-  movementFactor: 0
+  period: 10
 --- !u!1 &2085330941
 GameObject:
   m_ObjectHideFlags: 0
