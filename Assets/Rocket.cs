@@ -8,11 +8,18 @@ public class Rocket : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private AudioSource audioSource;
+
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+
     [SerializeField] AudioClip engineAudio;
     [SerializeField] AudioClip explosionAudio;
     [SerializeField] AudioClip successAudio;
+
+    [SerializeField] ParticleSystem engineParticles;
+    [SerializeField] ParticleSystem explosionParticles;
+    [SerializeField] ParticleSystem successParticles;
+
     private const float timeBetweenLevels = 1f;
 
     enum State
@@ -67,17 +74,21 @@ public class Rocket : MonoBehaviour
 
     private void Transcend()
     {
+        currentState = State.Transcending;
         audioSource.Stop();
         audioSource.PlayOneShot(successAudio);
-        currentState = State.Transcending;
+        engineParticles.Stop();
+        successParticles.Play();
         Invoke("LoadNextLevel", timeBetweenLevels);
     }
 
     private void Die()
     {
+        currentState = State.Dying;
         audioSource.Stop();
         audioSource.PlayOneShot(explosionAudio);
-        currentState = State.Dying;
+        engineParticles.Stop();
+        explosionParticles.Play();
         Invoke("RestartGame", timeBetweenLevels);
     }
 
@@ -100,6 +111,7 @@ public class Rocket : MonoBehaviour
         else if (audioSource.isPlaying)
         {
             audioSource.Stop();
+            engineParticles.Stop();
         }
     }
 
@@ -111,6 +123,7 @@ public class Rocket : MonoBehaviour
         {
             audioSource.PlayOneShot(engineAudio);
         }
+        engineParticles.Play();
     }
 
     private void RespondToRotateInput()
