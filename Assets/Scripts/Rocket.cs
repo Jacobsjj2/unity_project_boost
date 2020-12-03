@@ -17,7 +17,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] ParticleSystem successParticles;
 
-    private const float timeBetweenLevels = 1f;
+    [SerializeField] float timeBetweenLevels = 1f;
 
     enum State
     {
