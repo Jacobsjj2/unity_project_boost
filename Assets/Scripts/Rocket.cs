@@ -19,6 +19,8 @@ public class Rocket : MonoBehaviour
 
     [SerializeField] float timeBetweenLevels = 1f;
 
+    private bool collisionEnabled;
+
     enum State
     {
         Alive,
@@ -34,23 +36,39 @@ public class Rocket : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         currentState = State.Alive;
+        collisionEnabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentState != State.Alive)
+        if (Debug.isDebugBuild)
         {
-            return;
+            RespondToDebug();
         }
 
-        RespondToThrustInput();
-        RespondToRotateInput();
+        if (currentState == State.Alive)
+        {
+            RespondToThrustInput();
+            RespondToRotateInput();
+        }
+    }
+
+    private void RespondToDebug()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Transcend();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionEnabled = !collisionEnabled;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (currentState != State.Alive)
+        if (currentState != State.Alive || !collisionEnabled)
         {
             return;
         }
